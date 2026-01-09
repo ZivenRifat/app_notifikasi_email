@@ -1,0 +1,276 @@
+/* ============================================
+   CSS Variables - Design Tokens
+   ============================================ */
+:root {
+  --color-primary: #667eea;
+  --color-primary-dark: #764ba2;
+  --color-accent: #f093fb;
+
+  --color-text-primary: #1f2937;
+  --color-text-secondary: #6b7280;
+  --color-border: #e5e7eb;
+  --color-bg: #f9fafb;
+  --color-white: #ffffff;
+
+  --color-success: #10b981;
+  --color-error: #ef4444;
+
+  --radius-sm: 10px;
+  --radius-md: 18px;
+
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 15px 40px rgba(0, 0, 0, 0.18);
+
+  --transition: 0.25s ease;
+
+  --font-family: "Segoe UI", system-ui, sans-serif;
+
+  --container-width: 420px;
+}
+
+/* ============================================
+   Reset
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-primary-dark)
+  );
+}
+
+/* ============================================
+   Layout
+   ============================================ */
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.email-card {
+  width: 100%;
+  max-width: var(--container-width);
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  padding: 40px 32px;
+  position: relative;
+}
+
+.email-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 5px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-accent)
+  );
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+/* ============================================
+   Icon
+   ============================================ */
+.email-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.email-icon svg {
+  width: 72px;
+  height: 72px;
+  fill: var(--color-primary);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* ============================================
+   Header
+   ============================================ */
+.card-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.card-header h1 {
+  font-size: 26px;
+  color: var(--color-text-primary);
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+/* ============================================
+   Form
+   ============================================ */
+.email-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: var(--color-text-primary);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1.8px solid var(--color-border);
+  background: var(--color-bg);
+  font-size: 15px;
+  transition: var(--transition);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  background: var(--color-white);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+.button-group {
+  display: grid;
+  gap: 12px;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+}
+
+/* Primary */
+.btn-primary {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-primary-dark)
+  );
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Secondary */
+.btn-secondary {
+  background: #eef2ff;
+  color: var(--color-primary-dark);
+}
+
+.btn-secondary:hover {
+  background: #e0e7ff;
+}
+
+/* Outline */
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn-outline:hover {
+  background: rgba(102, 126, 234, 0.08);
+}
+
+/* ============================================
+   Notification
+   ============================================ */
+.notification-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.notification {
+  background: var(--color-white);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  padding: 14px 16px;
+  min-width: 280px;
+  animation: slideIn 0.3s ease forwards;
+}
+
+.notification.success {
+  border-left: 4px solid var(--color-success);
+}
+
+.notification.error {
+  border-left: 4px solid var(--color-error);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 480px) {
+  .email-card {
+    padding: 28px 22px;
+  }
+
+  .card-header h1 {
+    font-size: 22px;
+  }
+
+  .email-icon svg {
+    width: 60px;
+    height: 60px;
+  }
+}

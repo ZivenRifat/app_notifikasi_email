@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Aplikasi pengiriman notifikasi email sekarang atau terjadwal"
+    />
+    <title>Email Notification</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Notification -->
+    <div
+      id="notificationContainer"
+      class="notification-container"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
+
+    <!-- Main Container -->
+    <main class="page-wrapper">
+      <section class="email-card">
+        <!-- Icon -->
+        <div class="email-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16
+                 c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4
+                 l-8 5-8-5V6l8 5 8-5v2z"
+            />
+          </svg>
+        </div>
+
+        <!-- Title -->
+        <header class="card-header">
+          <h1>Email Notification</h1>
+          <p class="subtitle">
+            Kirim email sekarang atau jadwalkan sesuai kebutuhan
+          </p>
+        </header>
+
+        <!-- Form -->
+        <form id="emailForm" class="email-form" novalidate>
+          <div class="form-group">
+            <label for="email">Alamat Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="contoh@email.com"
+              required
+              autocomplete="email"
+            />
+          </div>
+
+          <!-- Actions -->
+          <div class="button-group">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              data-type="now"
+            >
+              Kirim Sekarang
+            </button>
+
+            <button
+              type="submit"
+              class="btn btn-secondary"
+              data-type="5min"
+            >
+              5 Menit Lagi
+            </button>
+
+            <button
+              type="submit"
+              class="btn btn-outline"
+              data-type="12hour"
+            >
+              12 Jam Lagi
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <!-- Script -->
+    <script src="js/main.js"></script>
+  </body>
+</html>

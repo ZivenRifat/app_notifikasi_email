@@ -1,0 +1,10 @@
+[
+    {
+        "id": "69616f22b36f5",
+        "email": "ziven.rifatrrh@gmail.com",
+        "subject": "Notifikasi Email",
+        "message": "<h3>Halo!<\/h3><p>Email ini dikirim terjadwal.<\/p>",
+        "send_at": 1768036322,
+        "status": "pending"
+    }
+]
