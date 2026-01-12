@@ -1,14 +1,7 @@
-Blueprint Name
-A unique name for your Blueprint.
-Branch
-The repository branch with the render.yaml file.
-branch
-
-main
-Review render.yaml configurations from ZivenRifat/app_notifikasi_email.
-All future updates to render.yaml will be synced automatically, which may change your costs.
-A render.yaml file was found, but there was an issue.
-
-EOF
-
-Retry
+services:
+  - type: web
+    name: app-notifikasi-email
+    env: docker
+    plan: free
+    dockerfilePath: Dockerfile
+    autoDeploy: true
